@@ -1,0 +1,19 @@
+<tr *ngIf="product">
+  <td>{{ product.name }}</td>
+  <td>{{ product.price }}</td>
+  <td>{{ product.available }}</td>
+  <td>
+    <button [class]="product.selected ? 'btn-danger': 'btn-success'" class="btn" (click)="toggleSelected(product)">
+      <span *ngIf="product.selected">Unselected</span>
+      <span *ngIf="!product.selected">Selected</span>
+    </button>
+  </td>
+  <td>
+    <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete
+    </button>
+  </td>
+  <td>
+    <button (click)="editProduct(product.id)">Edit
+    </button>
+  </td>
+</tr>

@@ -1,0 +1,28 @@
+<div class="container" *ngIf="formGroup">
+  <form [formGroup]="formGroup">
+    <p>{{formGroup.value | json}}</p>
+    <div class="form-group">
+      <label>Designation</label>
+      <input class="form-control" formControlName="name" type="text" [ngClass]="{'is-invalid': submitted && formGroup.controls['name'].errors}">
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input class="form-control" type="number" formControlName="price">
+    </div>
+    <div class="form-group">
+      <label>Quantity</label>
+      <input class="form-control" type="number" formControlName="quantity">
+    </div>
+    <div class="form-group">
+      <label>Selected</label>
+      <input class="form-control" type="checkbox" formControlName="selected">
+    </div>
+    <div class="form-group">
+      <label>Available</label>
+      <input class="form-control" type="checkbox" formControlName="available">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="saveProduct()">Save</button>
+    </div>
+  </form>
+</div>
