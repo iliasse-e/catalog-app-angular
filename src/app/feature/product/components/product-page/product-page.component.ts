@@ -4,6 +4,7 @@ import {IProduct} from "../../../../shared/model";
 import {ProductService} from "../../../../core/service/product.service";
 import {DataStateEnum, IActionEvent, IAppDataState, ProductActionTypeEnum} from "../../../../shared/product-state";
 import {Router} from "@angular/router";
+import {EventDriverService} from "../../../../core/service/event-driver.service";
 
 @Component({
   selector: 'app-product-page',
@@ -15,11 +16,16 @@ export class ProductPageComponent implements OnInit {
   public productsData$?: Observable<IAppDataState<IProduct[]>>;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productService: ProductService, private router: Router) {
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private eventDriverService: EventDriverService) {
   }
 
   ngOnInit() {
-    this.getAllProducts();
+    this.eventDriverService.sourceEventSubject$.subscribe((event: IActionEvent) => {
+      this.onActionEvent(event)
+    })
   }
 
   getAllProducts() {

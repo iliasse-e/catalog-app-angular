@@ -1,5 +1,3 @@
-<app-navbar (productEventEmitter)="onActionEvent($event)"></app-navbar>
-<app-product-table [productsDataInput$]="productsData$" (tableEventEmitter)="onActionEvent($event)"></app-product-table>
-<div *ngIf="productsData$">
-</div>
+<app-navbar></app-navbar>
+<app-product-table [productsDataInput$]="productsData$"></app-product-table>
 

@@ -11,10 +11,10 @@ import {IProduct} from "../../../../shared/model";
 export class ProductTableComponent {
 
   @Input() public productsDataInput$?: Observable<IAppDataState<IProduct[]>>;
-  @Output() tableEventEmitter: EventEmitter<IActionEvent> = new EventEmitter<IActionEvent>();
+  //@Output() tableEventEmitter: EventEmitter<IActionEvent> = new EventEmitter<IActionEvent>();
   readonly DataStateEnum = DataStateEnum;
 
-  onActionEvent($event: IActionEvent) {
-    this.tableEventEmitter.emit($event);
-  }
+  // onActionEvent($event: IActionEvent) {
+  //   this.tableEventEmitter.emit($event);
+  // }
 }
