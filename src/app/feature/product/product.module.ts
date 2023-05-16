@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewProductFormComponent } from './components/new-product-form/new-product-form.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import {ProductFacadeService} from "../../core/service/product-facade.service";
 
 
 
@@ -20,12 +21,12 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ProductItemComponent
   ],
   exports: [
-    ProductPageComponent
+    ProductPageComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ], providers: [ProductFacadeService]
 })
 export class ProductModule { }
